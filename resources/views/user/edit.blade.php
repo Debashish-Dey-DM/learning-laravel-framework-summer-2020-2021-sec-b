@@ -7,7 +7,7 @@
 	
 	<a href="/home"> Back</a> |
 	<a href="/logout"> Logout </a> 
-
+	<form method="post">
 	<h2>User Details</h2>
     	<table border="1">
         <tr>
@@ -29,7 +29,10 @@
             <td>New Email</td>
             <td><input type="email" name="email"></td>
 		</tr>
+
+		
 	</table>
-	
+	<td><input type="submit" name="Submit" value="Add"></td>
+	</form>
 </body>
 </html>

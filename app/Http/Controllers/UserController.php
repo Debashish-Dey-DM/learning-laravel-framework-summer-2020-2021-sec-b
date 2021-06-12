@@ -49,16 +49,21 @@ class UserController extends Controller
     }
 
     public function update(Request $req, $id){
-        // $users = $this->getUserList();
-        //  $editUser = '';
-        // foreach($users as $u){
-        //     if($u['id'] == $id){
-        //         $editUser = $u;
-        //          $updatedUser = ['name'=>$req->uname, 'email'=>$req->email];
-                
-               
+        $users = $this->getUserList();
+        $user = '';
 
-        //     }
+        foreach($users as $u =>$subArray){
+            if($subArray['id'] == $id){
+                $users[$u]['name']=$req->uname;
+                $users[$u]['password']=$req->password;
+                $users[$u]['email']=$req->email;
+                $users[$u]['type']=$req->type;
+                
+
+                   
+            }
+        }
+        return view('user.list')->with('userList', $users);
 
         return view('user.list')->with('userList', $updatedUser);
     }
