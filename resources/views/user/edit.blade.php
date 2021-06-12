@@ -7,7 +7,7 @@
 	
 	<a href="/home"> Back</a> |
 	<a href="/logout"> Logout </a> 
-	<form method="post">
+	<form method="POST">
 	<h2>User Details</h2>
     	<table border="1">
         <tr>

@@ -65,29 +65,43 @@ class UserController extends Controller
         }
         return view('user.list')->with('userList', $users);
 
-        return view('user.list')->with('userList', $updatedUser);
+       
     }
 
     public function delete( $id){
         //confirm window
+        $users = $this->getUserList();
+        $userser = '';
+                foreach($users as $u){
+            if($u['id'] == $id){
+                $user = $u;
+                break;
+            }
+        }
+
         //find user by id $user
 
         return view('user.delete')->with('user', $user);
     }
 
-    public function destroy($id){
-        //remove user form list
-        //create new list & display
-
+    public function destroy(Request $req, $id){
+        $users = $this->getUserList();
+        $user = '';
+        foreach($users as $u => $subArray){
+            if($subArray['id'] == $id){
+                    unset($users[$u]);
+            }
+        }
+           
         return view('user.list')->with('userList', $users);
     }
 
 
     public function getUserList(){
         return [
-            ['id'=>1, 'name'=>'almain', 'email'=>'email@email.com'],
-            ['id'=>2, 'name'=>'abc', 'email'=>'abc@email.com'],
-            ['id'=>3, 'name'=>'xyz', 'email'=>'xyz@email.com']
+            ['id'=>1, 'name'=>'Debashish', 'email'=>'debashish@email.com'],
+            ['id'=>2, 'name'=>'Emon', 'email'=>'emon@email.com'],
+            ['id'=>3, 'name'=>'Rokan', 'email'=>'rokan@email.com']
         ];
     }
 }
