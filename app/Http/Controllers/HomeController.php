@@ -15,14 +15,11 @@ class HomeController extends Controller
     // return view('home.index',)
     //         ->with('id', '12')
     //         ->with('name','dipto');
-    if($req->session()->has('uname')){
+   
            return view('home.index',)
             ->withId('12')
             ->withName('diptoo');
-    }else{
-        $req->session()->flash('msg','Invalid Request');
-        return redirect('/login');
-    }
+ 
  
 }
 }

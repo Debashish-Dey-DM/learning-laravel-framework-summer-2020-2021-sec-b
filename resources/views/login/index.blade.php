@@ -7,13 +7,15 @@
     
     <form method ="post">
     <table>
+        {{-- @csrf --}}
+        {{csrf_field()}}
     <tr>
     <td>Name</td>
-    <td><input type="text" name="uname"></td>
+    <td><input type="text" name="uname" value="{{old('uname')}}"></td>
     </tr>
     <tr>
     <td>Password</td>
-    <td><input type="password" name="password"></td>
+    <td><input type="password" name="password" value="{{old('password')}}"></td>
     </tr>
     <tr>
     <td></td>
@@ -22,5 +24,11 @@
     </table>
     </form>
     {{session('msg')}}
+    <br>
+    @foreach ($errors->all() as $err)
+    {{$err}}
+    <br>
+        
+    @endforeach
 </body>
 </html>

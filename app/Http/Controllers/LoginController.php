@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
+use App\Http\Requests\UserRequest;
 
 class LoginController extends Controller
 {
@@ -11,7 +13,7 @@ class LoginController extends Controller
         return view('login.index');
 }
 
-    public function verify(Request $req){
+    public function verify(UserRequest $req){
         //regular data and flash data
         //regular data => store,read,delete,update
 
@@ -27,6 +29,25 @@ class LoginController extends Controller
         // $req->session()->flush();
         // $uname = $req->session()->pull('uname');
         //  $req->session()->has('uname');
+
+
+
+        // $validation = Validator::make($req->all(), [
+        //     'uname' => 'required',
+        //     'password' => 'required|min:5'
+        // ]);
+        // if($validation->fails()){
+        //     return back()
+        //     ->with('errors', $validation->errors())
+        //     ->withInput();
+
+        //     // return redirect()->route('login.index')->with('errors', $validation->errors());
+        // }
+  
+        // $this->validate($req,[
+        //     'uname' => 'required',
+        //     'password' => 'required|min:5'
+        // ])->validate();
 
 
 
